@@ -1,0 +1,115 @@
+==============================================================
+SITE: SolTrack — Weather & Sun Timeline
+==============================================================
+
+ROLE / CONTEXT
+--------------
+Role: Creative Technologist & UI Designer for a weather visualization tool.
+Context: "SolTrack" is a beautiful, minimalist weather app that shows the
+current conditions, a 5-day forecast, and a stunning animated sun arc that
+tracks the sunrise-to-sunset timeline for the user's location.
+
+PURPOSE
+-------
+To make checking the weather a moment of visual delight. The hero section
+features a living sun arc — a glowing orb that rises from the left at sunrise
+and sets on the right at sunset, all smoothly animated. The design is clean,
+modern, and calming, like a well-designed weather widget turned into art.
+
+CORE FEATURE
+-------------
+The Sun Arc: A CSS/SVG animated timeline that shows the sun's journey across
+the sky. Sunrise time on the left, sunset time on the right. The sun orb
+follows a parabolic arc and glows warmly. Below the arc, a horizontal
+24-hour timeline shows key weather events (cloud, rain, clear) at their
+respective hours as small icons.
+
+
+==============================================================
+DESIGN SYSTEM
+=============
+Style: Soft Glassmorphism meets Data Viz. Clean, airy, with subtle
+       gradients that shift based on time of day (morning amber,
+       afternoon blue, evening purple, night indigo).
+
+COLORS (time-aware palette):
+  Morning (5am–11am):   Sky #FFE8D6 → #FFD4A8, Sun #FFB74D
+  Afternoon (11am–5pm): Sky #D4E5F7 → #A0C8F0, Sun #FFD54F
+  Evening (5pm–9pm):    Sky #E8D5F5 → #C4A0E0, Sun #FF8A65
+  Night (9pm–5am):      Sky #1A1A2E → #16213E, Moon #E0E0E0
+  Card Background:      rgba(255,255,255,0.15) with blur(12px)
+  Text:                 #FFFFFF and rgba(255,255,255,0.7)
+
+TYPOGRAPHY:
+  Display: "Space Grotesk" (modern, clean, slightly geometric)
+  Body:    "Inter" (readable at small sizes)
+  Numbers: "JetBrains Mono" (monospaced for temperature and time data)
+
+SPACING & RADII:
+  Container max-width: 800px (centered, like a mobile widget)
+  Card Radius: 20px
+  Button Radius: Pill (9999px)
+
+
+==============================================================
+SECTIONS (4 total)
+==================
+1. HERO — THE SUN ARC
+   - Full-width, centered on the page.
+   - A responsive SVG canvas (320px to 600px wide) showing a parabolic arc.
+   - The sun is a glowing CSS-animated orb (box-shadow + radial gradient)
+     that slowly moves from left (sunrise) to right (sunset) using
+     CSS @keyframes or requestAnimationFrame.
+   - Below the arc: "Sunrise 6:12 AM" on the left, "Sunset 8:47 PM" on the right.
+   - The background gradient shifts smoothly based on the current time.
+   - A large current temperature reading: "72°F" with "Partly Cloudy" below.
+   - Tiny animated raindrops or cloud drift if precipitation is present.
+
+2. HOURLY TIMELINE
+   - A horizontal scrollable strip showing the next 12 hours.
+   - Each hour: time label (e.g., "2 PM"), a tiny weather icon (sun, cloud,
+     rain, etc.), and a temperature number.
+   - The current hour is highlighted with a soft glow.
+   - Smooth horizontal scroll on mobile, full grid on desktop.
+
+3. 5-DAY FORECAST
+   - Five cards in a row (scrollable on mobile) showing:
+     • Day name ("Mon", "Tue", ...)
+     • Weather icon
+     • High / Low temperature
+   - Cards use the same glassmorphic style with subtle hover lift.
+
+4. AIR QUALITY & DETAILS
+   - Three small metric cards: "Humidity 54%", "Wind 8 mph NE", "UV Index 3 Moderate".
+   - Simple icon + number + label layout.
+   - Footer with "Powered by SolTrack" and a tiny sun logo.
+
+
+==============================================================
+IMAGERY (Nano Banana 2 or Emoji/SVG fallback)
+==============================================
+Generate only 2 background textures via Nano Banana 2. All weather icons
+can be simple SVG or emoji (☀️, ⛅, 🌧️, 🌙, ❄️) — no API images needed.
+
+Prompts:
+1. "Soft abstract gradient sky background, morning edition, amber to pastel blue,
+   subtle lens flare, 16:9, 4k."
+2. "Soft abstract gradient sky background, night edition, deep indigo to dark blue,
+   tiny scattered stars, subtle glow, 16:9, 4k."
+
+Fallback: Use CSS linear-gradient backgrounds.
+
+Weather icons: Use Lucide icons (Sun, Cloud, CloudRain, Moon, Snowflake, Wind)
+or simple emoji rendered at 2rem font-size.
+
+
+==============================================================
+INTERACTIVE COMPONENTS
+=====================
+- The sun orb pulses gently (CSS animation, 3s infinite pulse).
+- Hourly timeline items fade in on scroll.
+- 5-day cards lift on hover (transform: translateY(-4px)).
+- Background gradient smoothly changes using CSS transition if the time
+  changes while the page is open (optional, can be static).
+
+No tabs, no modals, no complex routing. Just one beautiful page.

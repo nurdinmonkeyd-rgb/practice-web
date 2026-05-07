@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright-mcp__browser_navigate",
+      "Bash(python -m http.server 8765)",
+      "mcp__playwright-mcp__browser_take_screenshot",
+      "mcp__playwright-mcp__browser_evaluate",
+      "Bash(pkill -f \"python -m http.server\")",
+      "Bash(pkill -f \"http.server\")",
+      "Bash(python -m http.server 8766)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8766/index.html)",
+      "mcp__web-developer-mcp__browser-navigate",
+      "Bash(start *)",
+      "Skill(nano-banana-2)",
+      "Bash(Get-Content *)",
+      "Bash(netstat -ano)",
+      "Bash(python -m http.server 9876)",
+      "Bash(curl -s http://localhost:9876/)",
+      "mcp__playwright-mcp__browser_console_messages"
+    ]
+  }
+}
